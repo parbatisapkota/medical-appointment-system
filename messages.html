@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MedicalCare | Messages</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>MedicalCare</h1>
+        <p>Messages</p>
+    </header>
+
+
+    <!-- Navigation -->
+    <nav aria-label="Main navigation">
+
+        <a href="index.html">Home</a>
+
+        <a href="patient-dashboard.html">Dashboard</a>
+
+        <a href="appointments.html">Appointments</a>
+
+        <a href="patient-information.html">Patient Information</a>
+
+        <a href="messages.html">Messages</a>
+
+        <a href="login.html">Logout</a>
+
+    </nav>
+
+
+    <main>
+
+        <!-- Page Introduction -->
+        <section class="card">
+
+            <h2>Messages</h2>
+
+            <p>
+                Communicate with your healthcare team
+                in one simple and accessible place.
+            </p>
+
+            <button
+                type="button"
+                onclick="readPage()"
+                aria-label="Listen to this page">
+                🔊 Listen to This Page
+            </button>
+
+        </section>
+
+
+        <!-- Recent Messages -->
+        <section class="card">
+
+            <h2>Recent Messages</h2>
+
+
+            <!-- Message 1 -->
+            <div class="message">
+
+                <h3>Dr. Johnson</h3>
+
+                <p>
+                    Your upcoming appointment is confirmed
+                    for September 28, 2026 at 10:30 AM.
+                </p>
+
+                <small>
+                    September 20, 2026
+                </small>
+
+                <br><br>
+
+                <button
+                    type="button"
+                    data-audio-text="Message from Dr. Johnson. Your upcoming appointment is confirmed for September 28, 2026 at 10:30 AM."
+                    aria-label="Listen to Dr. Johnson's message">
+                    🔊 Listen to Message
+                </button>
+
+            </div>
+
+
+            <hr>
+
+
+            <!-- Message 2 -->
+            <div class="message">
+
+                <h3>MedicalCare Health Center</h3>
+
+                <p>
+                    Please remember to bring your identification
+                    and insurance information to your appointment.
+                </p>
+
+                <small>
+                    September 19, 2026
+                </small>
+
+                <br><br>
+
+                <button
+                    type="button"
+                    data-audio-text="Message from MedicalCare Health Center. Please remember to bring your identification and insurance information to your appointment."
+                    aria-label="Listen to MedicalCare Health Center's message">
+                    🔊 Listen to Message
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- Send Message -->
+        <section class="card">
+
+            <h2>Send a Message</h2>
+
+            <p>
+                Send a non-emergency message to your healthcare team.
+            </p>
+
+
+            <label for="messageProvider">
+                <strong>Send To</strong>
+            </label>
+
+            <br><br>
+
+
+            <select
+                id="messageProvider"
+                aria-label="Select healthcare provider">
+
+                <option value="">
+                    Select a recipient
+                </option>
+
+                <option value="johnson">
+                    Dr. Johnson
+                </option>
+
+                <option value="patel">
+                    Dr. Patel
+                </option>
+
+                <option value="williams">
+                    Dr. Williams
+                </option>
+
+            </select>
+
+
+            <br><br><br>
+
+
+            <label for="messageText">
+                <strong>Message</strong>
+            </label>
+
+            <br><br>
+
+
+            <textarea
+                id="messageText"
+                rows="6"
+                placeholder="Type your message here..."
+                aria-label="Message"></textarea>
+
+
+            <br><br>
+
+
+            <button
+                type="button"
+                onclick="sendMessage()"
+                aria-label="Send message">
+
+                Send Message
+
+            </button>
+
+        </section>
+
+
+        <!-- Accessibility -->
+        <section class="purple-accent">
+
+            <h2>Accessibility Support</h2>
+
+            <p>
+                MedicalCare provides audio assistance to help
+                users access important information on this page.
+            </p>
+
+
+            <button
+                type="button"
+                onclick="speakText('This page allows you to listen to messages from your healthcare team and send a non-emergency message to your provider. You can also use the Listen to This Page button to hear the page content.')"
+                aria-label="Listen to accessibility instructions">
+
+                🔊 Listen to Instructions
+
+            </button>
+
+        </section>
+
+
+        <!-- Important Notice -->
+        <section class="card">
+
+            <h2>Important</h2>
+
+            <p>
+                This messaging system is not for emergencies.
+                If you are experiencing a medical emergency,
+                contact emergency services.
+            </p>
+
+        </section>
+
+
+        <!-- Prototype Notice -->
+        <section class="card">
+
+            <h2>Student Project Prototype</h2>
+
+            <p>
+                This MedicalCare website is a prototype created
+                for our Group 3 class project. The system is
+                designed to demonstrate how a simple and
+                accessible healthcare management system could work.
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

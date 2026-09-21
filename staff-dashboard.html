@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MedicalCare | Staff Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>MedicalCare</h1>
+        <p>Staff Dashboard</p>
+    </header>
+
+
+    <!-- Navigation -->
+    <nav aria-label="Main navigation">
+
+        <a href="index.html">Home</a>
+
+        <a href="staff-dashboard.html">Staff Dashboard</a>
+
+        <a href="appointments.html">Appointments</a>
+
+        <a href="patient-information.html">Patient Information</a>
+
+        <a href="messages.html">Messages</a>
+
+        <a href="login.html">Logout</a>
+
+    </nav>
+
+
+    <main>
+
+        <!-- Welcome -->
+        <section class="card">
+
+            <h2>Welcome, Medical Staff</h2>
+
+            <p>
+                Use the MedicalCare staff dashboard to view
+                appointments, access patient information, and
+                manage communication with patients.
+            </p>
+
+        </section>
+
+
+        <!-- Today's Appointments -->
+        <section class="card">
+
+            <h2>Today's Appointments</h2>
+
+            <p>
+                <strong>9:00 AM</strong> - Maria Garcia -
+                General Checkup
+            </p>
+
+            <p>
+                <strong>10:30 AM</strong> - James Wilson -
+                Follow-up Visit
+            </p>
+
+            <p>
+                <strong>1:00 PM</strong> - Emily Davis -
+                Consultation
+            </p>
+
+            <p>
+                <strong>2:30 PM</strong> - Michael Brown -
+                Physical Examination
+            </p>
+
+        </section>
+
+
+        <!-- Quick Actions -->
+        <section class="card">
+
+            <h2>Quick Actions</h2>
+
+            <button
+                type="button"
+                onclick="window.location.href='appointments.html'">
+                View Appointments
+            </button>
+
+            <button
+                type="button"
+                onclick="window.location.href='patient-information.html'">
+                View Patient Information
+            </button>
+
+            <button
+                type="button"
+                onclick="window.location.href='messages.html'">
+                View Messages
+            </button>
+
+        </section>
+
+
+        <!-- Patient Search -->
+        <section class="card">
+
+            <h2>Patient Search</h2>
+
+            <p>
+                Search for a patient by name.
+            </p>
+
+            <label for="patientSearch">
+                <strong>Patient Name</strong>
+            </label>
+
+            <br><br>
+
+            <input
+                type="text"
+                id="patientSearch"
+                placeholder="Enter patient name"
+                aria-label="Search for a patient">
+
+            <br><br>
+
+            <button
+                type="button"
+                onclick="searchPatient()"
+                aria-label="Search for patient">
+                Search Patient
+            </button>
+
+        </section>
+
+
+        <!-- Notifications -->
+        <section class="card">
+
+            <h2>Staff Notifications</h2>
+
+            <p>
+                🔔 Four appointments are scheduled for today.
+            </p>
+
+            <p>
+                🔔 One new patient message needs a response.
+            </p>
+
+            <p>
+                🔔 Remember to review today's appointment schedule.
+            </p>
+
+        </section>
+
+
+        <!-- Accessibility -->
+        <section class="purple-accent">
+
+            <h2>Accessibility Support</h2>
+
+            <p>
+                MedicalCare provides audio assistance,
+                readable text, clear navigation, and
+                keyboard-friendly controls.
+            </p>
+
+            <button
+                type="button"
+                onclick="speakText('The staff dashboard allows medical staff to view appointments, search for patients, access patient information, and view messages.')"
+                aria-label="Listen to staff dashboard instructions">
+                🔊 Listen to Instructions
+            </button>
+
+        </section>
+
+
+        <!-- Prototype Notice -->
+        <section class="card">
+
+            <h2>Student Project Prototype</h2>
+
+            <p>
+                This MedicalCare website is a prototype created
+                for our Group 3 class project. The staff dashboard
+                demonstrates how medical staff could manage common
+                healthcare tasks in one simple system.
+            </p>
+
+            <p>
+                Please do not enter real medical or personal
+                information.
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

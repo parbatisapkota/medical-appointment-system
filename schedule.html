@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MedicalCare | Schedule Appointment</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>MedicalCare</h1>
+        <p>Schedule an Appointment</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="patient-dashboard.html">Dashboard</a>
+        <a href="appointments.html">Appointments</a>
+        <a href="patient-information.html">Patient Information</a>
+        <a href="messages.html">Messages</a>
+        <a href="login.html">Logout</a>
+    </nav>
+
+    <main>
+
+        <!-- Appointment Form -->
+        <section class="card">
+
+            <h2>Schedule an Appointment</h2>
+
+            <p>
+                Please select your preferred provider, appointment
+                type, date, and time.
+            </p>
+
+            <!-- Healthcare Provider -->
+            <label for="provider">
+                <strong>Healthcare Provider</strong>
+            </label>
+
+            <br><br>
+
+            <select id="provider" aria-label="Healthcare Provider">
+                <option value="">Select a provider</option>
+                <option value="johnson">Dr. Johnson</option>
+                <option value="patel">Dr. Patel</option>
+                <option value="williams">Dr. Williams</option>
+            </select>
+
+            <br><br><br>
+
+            <!-- Appointment Type -->
+            <label for="appointmentType">
+                <strong>Appointment Type</strong>
+            </label>
+
+            <br><br>
+
+            <select id="appointmentType" aria-label="Appointment Type">
+                <option value="">Select appointment type</option>
+                <option value="checkup">General Checkup</option>
+                <option value="followup">Follow-up Visit</option>
+                <option value="consultation">Consultation</option>
+                <option value="physical">Physical Examination</option>
+            </select>
+
+            <br><br><br>
+
+            <!-- Date -->
+            <label for="appointmentDate">
+                <strong>Preferred Date</strong>
+            </label>
+
+            <br><br>
+
+            <input
+                type="date"
+                id="appointmentDate"
+                aria-label="Preferred appointment date"
+            >
+
+            <br><br><br>
+
+            <!-- Time -->
+            <label for="appointmentTime">
+                <strong>Preferred Time</strong>
+            </label>
+
+            <br><br>
+
+            <select id="appointmentTime" aria-label="Preferred appointment time">
+
+                <option value="">Select a time</option>
+                <option value="9:00 AM">9:00 AM</option>
+                <option value="9:30 AM">9:30 AM</option>
+                <option value="10:00 AM">10:00 AM</option>
+                <option value="10:30 AM">10:30 AM</option>
+                <option value="11:00 AM">11:00 AM</option>
+                <option value="1:00 PM">1:00 PM</option>
+                <option value="1:30 PM">1:30 PM</option>
+                <option value="2:00 PM">2:00 PM</option>
+                <option value="2:30 PM">2:30 PM</option>
+                <option value="3:00 PM">3:00 PM</option>
+
+            </select>
+
+            <br><br><br>
+
+            <!-- Reason -->
+            <label for="reason">
+                <strong>Reason for Visit</strong>
+            </label>
+
+            <br><br>
+
+            <textarea
+                id="reason"
+                rows="5"
+                placeholder="Briefly describe the reason for your visit..."
+                aria-label="Reason for visit"
+            ></textarea>
+
+            <br><br>
+
+            <!-- Submit -->
+            <button
+                type="button"
+                onclick="scheduleAppointment()"
+                aria-label="Schedule Appointment"
+            >
+                Schedule Appointment
+            </button>
+
+        </section>
+
+
+        <!-- Accessibility Information -->
+        <section class="purple-accent">
+
+            <h2>Accessibility Support</h2>
+
+            <p>
+                Need help navigating this page? Audio assistance
+                is available to read button names aloud.
+            </p>
+
+            <button
+                type="button"
+                onclick="speakText('Schedule an appointment. Select a healthcare provider, appointment type, preferred date, preferred time, and enter the reason for your visit.')"
+                aria-label="Read appointment instructions aloud"
+            >
+                🔊 Read Instructions Aloud
+            </button>
+
+        </section>
+
+
+        <!-- Demo Notice -->
+        <section class="card">
+
+            <h2>Student Project Demo</h2>
+
+            <p>
+                This appointment system is a class project prototype.
+                Please do not enter real medical or personal information.
+            </p>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,192 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+    color: #111111;
+    font-size: 18px;
+}
+
+/* Main Header */
+
+header {
+    background-color: #0066ff;
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 38px;
+}
+
+header p {
+    font-size: 19px;
+}
+
+/* Navigation */
+
+nav {
+    background-color: #000000;
+    padding: 18px;
+    text-align: center;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+nav a:hover,
+nav a:focus {
+    color: #b84cff;
+}
+
+/* Main Content */
+
+main {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+/* Cards */
+
+.card {
+    background-color: white;
+    padding: 30px;
+    margin-bottom: 25px;
+    border-radius: 12px;
+    border: 2px solid #d0d0d0;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+}
+
+h2 {
+    color: #0066ff;
+    font-size: 28px;
+}
+
+p {
+    line-height: 1.7;
+}
+
+/* Buttons */
+
+button {
+    background-color: #0066ff;
+    color: white;
+    border: 3px solid #0066ff;
+    padding: 15px 24px;
+    margin: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+button:hover,
+button:focus {
+    background-color: #b84cff;
+    border-color: #b84cff;
+    outline: 4px solid #000000;
+    outline-offset: 3px;
+}
+
+/* Purple Accessibility Section */
+
+.purple-accent {
+    background-color: #b84cff;
+    color: white;
+    padding: 35px;
+    border-radius: 12px;
+    margin-top: 25px;
+    text-align: center;
+}
+
+.purple-accent h2 {
+    color: white;
+}
+
+/* Accessibility Controls */
+
+.accessibility-panel {
+    background-color: #000000;
+    color: white;
+    padding: 20px;
+    margin-bottom: 25px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.accessibility-panel h2 {
+    color: white;
+}
+
+.accessibility-panel button {
+    background-color: #b84cff;
+    border-color: #b84cff;
+}
+
+/* Inputs */
+
+input {
+    padding: 12px;
+    width: 90%;
+    max-width: 350px;
+    border: 2px solid #555555;
+    border-radius: 6px;
+    margin-top: 5px;
+    font-size: 18px;
+}
+
+input:focus {
+    outline: 4px solid #b84cff;
+    border-color: #0066ff;
+}
+
+/* Appointment Form */
+
+select,
+textarea {
+    width: 90%;
+    max-width: 500px;
+    padding: 13px;
+    border: 2px solid #555555;
+    border-radius: 7px;
+    font-size: 18px;
+    background-color: white;
+    color: #111111;
+}
+
+select:focus,
+textarea:focus {
+    outline: 4px solid #b84cff;
+    border-color: #0066ff;
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* Horizontal Divider */
+
+hr {
+    border: none;
+    border-top: 1px solid #d0d0d0;
+    margin: 25px 0;
+}
+
+/* Keyboard Accessibility */
+
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 4px solid #b84cff;
+    outline-offset: 3px;
+}

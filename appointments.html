@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MedicalCare | Appointments</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>MedicalCare</h1>
+        <p>Appointments</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="patient-dashboard.html">Dashboard</a>
+        <a href="appointments.html">Appointments</a>
+        <a href="patient-information.html">Patient Information</a>
+        <a href="messages.html">Messages</a>
+        <a href="login.html">Logout</a>
+    </nav>
+
+    <main>
+
+        <!-- Page Introduction -->
+        <section class="card">
+
+            <h2>My Appointments</h2>
+
+            <p>
+                View your upcoming and previous appointments
+                in one place.
+            </p>
+
+        </section>
+
+
+        <!-- Upcoming Appointment -->
+        <section class="card">
+
+            <h2>Upcoming Appointment</h2>
+
+            <p><strong>Provider:</strong> Dr. Johnson</p>
+
+            <p><strong>Date:</strong> September 28, 2026</p>
+
+            <p><strong>Time:</strong> 10:30 AM</p>
+
+            <p><strong>Appointment Type:</strong> General Checkup</p>
+
+            <p><strong>Location:</strong> MedicalCare Health Center</p>
+
+            <button
+                onclick="alert('Appointment details: General Checkup with Dr. Johnson on September 28, 2026 at 10:30 AM.')">
+                View Details
+            </button>
+
+            <button
+                onclick="alert('Your appointment cancellation request has been submitted.')">
+                Cancel Appointment
+            </button>
+
+        </section>
+
+
+        <!-- Schedule Appointment -->
+        <section class="card">
+
+            <h2>Need a New Appointment?</h2>
+
+            <p>
+                Schedule an appointment with a healthcare provider.
+            </p>
+
+            <button onclick="window.location.href='schedule.html'">
+                Schedule an Appointment
+            </button>
+
+        </section>
+
+
+        <!-- Previous Appointments -->
+        <section class="card">
+
+            <h2>Previous Appointments</h2>
+
+            <p>
+                <strong>Dr. Patel</strong><br>
+                August 12, 2026<br>
+                Annual Checkup
+            </p>
+
+            <hr>
+
+            <p>
+                <strong>Dr. Williams</strong><br>
+                June 4, 2026<br>
+                Follow-up Visit
+            </p>
+
+        </section>
+
+
+        <!-- Purple Accent -->
+        <section class="purple-accent">
+
+            <h2>Healthcare Made Simple</h2>
+
+            <p>
+                MedicalCare helps patients keep track of their
+                healthcare appointments in one easy-to-use place.
+            </p>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

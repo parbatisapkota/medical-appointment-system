@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MedicalCare | Patient Information</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>MedicalCare</h1>
+        <p>Patient Information</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="patient-dashboard.html">Dashboard</a>
+        <a href="appointments.html">Appointments</a>
+        <a href="patient-information.html">Patient Information</a>
+        <a href="messages.html">Messages</a>
+        <a href="login.html">Logout</a>
+    </nav>
+
+    <main>
+
+        <!-- Patient Information -->
+        <section class="card">
+
+            <h2>My Information</h2>
+
+            <p>
+                View your basic patient information in one
+                easy-to-understand place.
+            </p>
+
+            <hr>
+
+            <p>
+                <strong>Patient Name:</strong>
+                <span id="patientName">Patient</span>
+            </p>
+
+            <p>
+                <strong>Date of Birth:</strong>
+                January 15, 2000
+            </p>
+
+            <p>
+                <strong>Phone:</strong>
+                (555) 123-4567
+            </p>
+
+            <p>
+                <strong>Email:</strong>
+                patient@example.com
+            </p>
+
+            <p>
+                <strong>Preferred Contact Method:</strong>
+                Email
+            </p>
+
+        </section>
+
+
+        <!-- Emergency Contact -->
+        <section class="card">
+
+            <h2>Emergency Contact</h2>
+
+            <p>
+                <strong>Name:</strong>
+                Alex Johnson
+            </p>
+
+            <p>
+                <strong>Relationship:</strong>
+                Family Member
+            </p>
+
+            <p>
+                <strong>Phone:</strong>
+                (555) 987-6543
+            </p>
+
+        </section>
+
+
+        <!-- Healthcare Information -->
+        <section class="card">
+
+            <h2>Healthcare Information</h2>
+
+            <p>
+                <strong>Primary Care Provider:</strong>
+                Dr. Johnson
+            </p>
+
+            <p>
+                <strong>Preferred Pharmacy:</strong>
+                MedicalCare Pharmacy
+            </p>
+
+            <p>
+                <strong>Insurance Provider:</strong>
+                Demo Health Insurance
+            </p>
+
+        </section>
+
+
+        <!-- Accessibility -->
+        <section class="purple-accent">
+
+            <h2>Accessibility Support</h2>
+
+            <p>
+                MedicalCare is designed with readable text,
+                clear navigation, keyboard accessibility,
+                and optional audio assistance.
+            </p>
+
+            <button
+                type="button"
+                onclick="speakText('This page contains your basic patient information, emergency contact, and healthcare information.')"
+                aria-label="Read patient information aloud"
+            >
+                🔊 Read Information Aloud
+            </button>
+
+        </section>
+
+
+        <!-- Demo Notice -->
+        <section class="card">
+
+            <h2>Student Project Demo</h2>
+
+            <p>
+                This is fictional information created for the
+                MedicalCare class project. Please do not enter
+                real medical or personal information.
+            </p>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

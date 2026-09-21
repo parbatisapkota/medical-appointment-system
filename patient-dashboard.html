@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MedicalCare | Patient Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>MedicalCare</h1>
+        <p>Patient Dashboard</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="patient-dashboard.html">Dashboard</a>
+        <a href="appointments.html">Appointments</a>
+        <a href="patient-information.html">Patient Information</a>
+        <a href="messages.html">Messages</a>
+        <a href="login.html">Logout</a>
+    </nav>
+
+    <main>
+
+        <!-- Welcome -->
+        <section class="card">
+
+            <h2>Welcome, <span id="patientName">Patient</span>!</h2>
+
+            <p>
+                Welcome to your MedicalCare patient dashboard.
+                From here, you can manage your appointments,
+                view your information, and communicate with your
+                healthcare team.
+            </p>
+
+        </section>
+
+
+        <!-- Next Appointment -->
+        <section class="card">
+
+            <h2>Next Appointment</h2>
+
+            <p><strong>Provider:</strong> Dr. Johnson</p>
+
+            <p><strong>Date:</strong> September 28, 2026</p>
+
+            <p><strong>Time:</strong> 10:30 AM</p>
+
+            <p><strong>Appointment Type:</strong> General Checkup</p>
+
+            <button onclick="window.location.href='appointments.html'">
+                View Appointment
+            </button>
+
+            <button
+                onclick="alert('Your appointment cancellation request has been submitted.')">
+                Cancel Appointment
+            </button>
+
+        </section>
+
+
+        <!-- Quick Actions -->
+        <section class="card">
+
+            <h2>Quick Actions</h2>
+
+            <button onclick="window.location.href='schedule.html'">
+                Schedule an Appointment
+            </button>
+
+            <button onclick="window.location.href='appointments.html'">
+                View All Appointments
+            </button>
+
+            <button onclick="window.location.href='patient-information.html'">
+                View Patient Information
+            </button>
+
+            <button onclick="window.location.href='messages.html'">
+                View Messages
+            </button>
+
+        </section>
+
+
+        <!-- Notifications -->
+        <section class="card">
+
+            <h2>Notifications</h2>
+
+            <p>
+                🔔 Your appointment with Dr. Johnson is coming up
+                on September 28, 2026.
+            </p>
+
+            <p>
+                🔔 Please arrive 15 minutes before your appointment.
+            </p>
+
+        </section>
+
+
+        <!-- Purple Accent -->
+        <section class="purple-accent">
+
+            <h2>Your Health, Your Schedule</h2>
+
+            <p>
+                MedicalCare keeps your important healthcare
+                information organized in one simple place.
+            </p>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

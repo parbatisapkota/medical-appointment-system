@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MedicalCare | Login</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>MedicalCare</h1>
+        <p>Patient Login</p>
+    </header>
+
+    <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="appointments.html">Appointments</a>
+        <a href="patient-information.html">Patient Information</a>
+        <a href="messages.html">Messages</a>
+        <a href="login.html">Login</a>
+    </nav>
+
+    <main>
+
+        <section class="card">
+
+            <h2>Patient Login</h2>
+
+            <p>
+                Enter your name or username to access your
+                MedicalCare patient dashboard.
+            </p>
+
+            <label for="username">
+                Username:
+            </label>
+
+            <br><br>
+
+            <input
+                type="text"
+                id="username"
+                placeholder="Enter your username"
+                aria-label="Enter your username">
+
+            <br><br>
+
+            <button
+                type="button"
+                onclick="loginUser()"
+                data-audio-text="Log In. Select this button to access your patient dashboard.">
+                Log In
+            </button>
+
+        </section>
+
+        <section class="purple-accent">
+
+            <h2>Accessibility Support</h2>
+
+            <p>
+                Audio assistance is available to help users
+                navigate the MedicalCare system.
+            </p>
+
+            <button
+                type="button"
+                onclick="speakText('Enter your username and select Log In to access your patient dashboard.')">
+                🔊 Hear Login Instructions
+            </button>
+
+        </section>
+
+        <section class="card">
+
+            <h2>Student Project Prototype</h2>
+
+            <p>
+                This MedicalCare website is a prototype created
+                for our Group 3 class project. It demonstrates how
+                a simple and accessible healthcare management system
+                could work.
+            </p>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

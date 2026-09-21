@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MedicalCare | Patient Management System</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>MedicalCare</h1>
+        <p>Medical Appointment & Patient Management System</p>
+    </header>
+
+
+    <!-- Navigation -->
+    <nav aria-label="Main navigation">
+
+        <a href="index.html">Home</a>
+
+        <a href="appointments.html">Appointments</a>
+
+        <a href="patient-information.html">Patient Information</a>
+
+        <a href="messages.html">Messages</a>
+
+        <a href="login.html">Login</a>
+
+    </nav>
+
+
+    <main>
+
+        <!-- Accessibility Options -->
+        <section class="accessibility-panel">
+
+            <h2>Accessibility Options</h2>
+
+            <p>
+                Audio assistance is available to read important
+                information and controls aloud.
+            </p>
+
+            <button
+                id="audioToggle"
+                type="button"
+                onclick="toggleAudio()"
+                data-audio-text="Audio assistance is currently on. Activate this button to turn audio assistance off.">
+                🔊 Audio Assistance: ON
+            </button>
+
+            <button
+                type="button"
+                onclick="readPage()"
+                aria-label="Read the MedicalCare page aloud">
+                🔊 Read Page Information
+            </button>
+
+        </section>
+
+
+        <!-- Welcome Section -->
+        <section class="card">
+
+            <h2>Welcome to MedicalCare</h2>
+
+            <p>
+                A simple and user-friendly healthcare management system
+                designed to make appointments and patient information
+                easier to access.
+            </p>
+
+            <button
+                type="button"
+                onclick="window.location.href='login.html'"
+                data-audio-text="Welcome to MedicalCare. This system helps patients manage appointments and access their healthcare information. Select Get Started to continue to the patient login page.">
+                Get Started
+            </button>
+
+        </section>
+
+
+        <!-- Quick Actions -->
+        <section class="card">
+
+            <h2>Quick Actions</h2>
+
+            <p>
+                Choose an option below to get started.
+            </p>
+
+            <button
+                type="button"
+                onclick="window.location.href='schedule.html'"
+                data-audio-text="Schedule an Appointment. Select this option to choose a healthcare provider, appointment type, date, and time.">
+                Schedule an Appointment
+            </button>
+
+            <button
+                type="button"
+                onclick="window.location.href='appointments.html'"
+                data-audio-text="View Appointments. Select this option to view upcoming and previous appointments.">
+                View Appointments
+            </button>
+
+            <button
+                type="button"
+                onclick="window.location.href='patient-information.html'"
+                data-audio-text="Patient Information. Select this option to view your patient information and healthcare information.">
+                Patient Information
+            </button>
+
+        </section>
+
+
+        <!-- Purple Accent Section -->
+        <section class="purple-accent">
+
+            <h2>Your Health, Your Schedule</h2>
+
+            <p>
+                Manage your appointments and important information
+                in one simple place.
+            </p>
+
+            <button
+                type="button"
+                onclick="speakText('Your Health, Your Schedule. MedicalCare helps patients manage appointments and keep important healthcare information organized in one simple place.')"
+                aria-label="Hear information about MedicalCare">
+                🔊 Hear About MedicalCare
+            </button>
+
+        </section>
+
+
+        <!-- Patient Login -->
+        <section class="card">
+
+            <h2>Patient Login</h2>
+
+            <p>
+                Enter your username to access your MedicalCare
+                patient dashboard.
+            </p>
+
+            <label for="username">
+                Username:
+            </label>
+
+            <br>
+
+            <input
+                type="text"
+                id="username"
+                placeholder="Enter your username"
+                aria-label="Enter your username">
+
+            <br><br>
+
+            <label for="password">
+                Password:
+            </label>
+
+            <br>
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Enter your password"
+                aria-label="Enter your password">
+
+            <br><br>
+
+            <button
+                type="button"
+                onclick="loginUser()"
+                data-audio-text="Log In. Activate this button to sign in to the MedicalCare patient dashboard.">
+                Log In
+            </button>
+
+        </section>
+
+
+        <!-- Why MedicalCare -->
+        <section class="card">
+
+            <h2>Why MedicalCare?</h2>
+
+            <p>
+                Our goal is to create a healthcare system that is
+                simple, accessible, and easy to understand for
+                patients and medical staff.
+            </p>
+
+            <p>
+                The system focuses on clear navigation, readable
+                information, and easy access to common healthcare tasks.
+            </p>
+
+            <button
+                type="button"
+                onclick="speakText('Why MedicalCare? Our goal is to create a healthcare system that is simple, accessible, and easy to understand for patients and medical staff. The system focuses on clear navigation, readable information, and easy access to common healthcare tasks.')"
+                aria-label="Hear why MedicalCare was created">
+                🔊 Hear About Our System
+            </button>
+
+        </section>
+
+
+        <!-- Prototype Notice -->
+        <section class="card">
+
+            <h2>Student Project Prototype</h2>
+
+            <p>
+                This MedicalCare website is a prototype created
+                for our Group 3 class project. It demonstrates how
+                a simple and accessible healthcare management system
+                could work.
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
