@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MedicalCare | Create Account</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>MedicalCare</h1>
+        <p>Create Your Patient Account</p>
+    </header>
+
+    <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="appointments.html">Appointments</a>
+        <a href="patient-information.html">Patient Information</a>
+        <a href="messages.html">Messages</a>
+        <a href="login.html">Login</a>
+    </nav>
+
+    <main>
+
+        <section class="card">
+
+            <h2>Create a Patient Account</h2>
+
+            <p>
+                This creates a real record in the MedicalCare patient
+                database, so you can log in and see your own
+                appointments, information, and messages.
+            </p>
+
+            <label for="regFullName"><strong>Full Name</strong></label>
+            <br><br>
+            <input
+                type="text"
+                id="regFullName"
+                placeholder="Enter your full name"
+                aria-label="Full name">
+            <br><br><br>
+
+            <label for="regUsername"><strong>Username</strong></label>
+            <br><br>
+            <input
+                type="text"
+                id="regUsername"
+                placeholder="Choose a username"
+                aria-label="Choose a username">
+            <br><br><br>
+
+            <label for="regPassword"><strong>Password</strong></label>
+            <br><br>
+            <input
+                type="password"
+                id="regPassword"
+                placeholder="Choose a password"
+                aria-label="Choose a password">
+            <br><br><br>
+
+            <label for="regDateOfBirth"><strong>Date of Birth</strong></label>
+            <br><br>
+            <input
+                type="date"
+                id="regDateOfBirth"
+                aria-label="Date of birth">
+            <br><br><br>
+
+            <label for="regPhone"><strong>Phone</strong></label>
+            <br><br>
+            <input
+                type="tel"
+                id="regPhone"
+                placeholder="(555) 123-4567"
+                aria-label="Phone number">
+            <br><br><br>
+
+            <label for="regEmail"><strong>Email</strong></label>
+            <br><br>
+            <input
+                type="email"
+                id="regEmail"
+                placeholder="you@example.com"
+                aria-label="Email address">
+            <br><br><br>
+
+            <label for="regPreferredContact"><strong>Preferred Contact Method</strong></label>
+            <br><br>
+            <select id="regPreferredContact" aria-label="Preferred contact method">
+                <option value="Email">Email</option>
+                <option value="Phone">Phone</option>
+                <option value="Text">Text</option>
+            </select>
+            <br><br>
+
+            <button
+                type="button"
+                onclick="registerPatient()"
+                data-audio-text="Create Account. Select this button to create your MedicalCare patient account.">
+                Create Account
+            </button>
+
+            <p>
+                Already have an account?
+                <a href="login.html">Log in</a>
+            </p>
+
+        </section>
+
+        <section class="purple-accent">
+
+            <h2>Accessibility Support</h2>
+
+            <p>
+                Audio assistance is available to help users
+                navigate the MedicalCare system.
+            </p>
+
+            <button
+                type="button"
+                onclick="speakText('Fill in your full name, choose a username and password, then select Create Account to set up your MedicalCare patient account.')">
+                🔊 Hear Registration Instructions
+            </button>
+
+        </section>
+
+        <section class="card">
+
+            <h2>Student Project Prototype</h2>
+
+            <p>
+                This MedicalCare website is a prototype created
+                for our Group 3 class project. Please do not enter
+                real medical or personal information.
+            </p>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

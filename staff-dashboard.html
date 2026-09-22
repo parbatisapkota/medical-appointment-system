@@ -32,7 +32,7 @@
 
         <a href="messages.html">Messages</a>
 
-        <a href="login.html">Logout</a>
+        <a href="login.html" onclick="logoutUser()">Logout</a>
 
     </nav>
 
@@ -58,25 +58,9 @@
 
             <h2>Today's Appointments</h2>
 
-            <p>
-                <strong>9:00 AM</strong> - Maria Garcia -
-                General Checkup
-            </p>
-
-            <p>
-                <strong>10:30 AM</strong> - James Wilson -
-                Follow-up Visit
-            </p>
-
-            <p>
-                <strong>1:00 PM</strong> - Emily Davis -
-                Consultation
-            </p>
-
-            <p>
-                <strong>2:30 PM</strong> - Michael Brown -
-                Physical Examination
-            </p>
+            <div id="todayAppointments">
+                <p>Loading today's appointments...</p>
+            </div>
 
         </section>
 
@@ -136,6 +120,8 @@
                 aria-label="Search for patient">
                 Search Patient
             </button>
+
+            <div id="patientSearchResults"></div>
 
         </section>
 

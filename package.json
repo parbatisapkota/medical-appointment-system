@@ -1,0 +1,15 @@
+{
+  "name": "medical-appointment-system",
+  "version": "1.0.0",
+  "description": "MedicalCare - a class project prototype for a patient appointment system, now backed by a real SQLite patient database.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
