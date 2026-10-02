@@ -1,3 +1,4 @@
 node_modules/
 medicalcare.db
 *.db-journal
+.env

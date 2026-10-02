@@ -190,3 +190,106 @@ textarea:focus {
     outline: 4px solid #b84cff;
     outline-offset: 3px;
 }
+
+/* ===============================================================
+   Phones and small tablets
+   ---------------------------------------------------------------
+   Everything below only applies on screens 700px wide or smaller,
+   so the desktop layout above is unchanged.
+   =============================================================== */
+
+@media (max-width: 700px) {
+
+    body {
+        font-size: 17px;
+        /* Keep content clear of the iPhone notch / home bar when the
+           site is installed and opened full-screen from the home screen */
+        padding-left: env(safe-area-inset-left);
+        padding-right: env(safe-area-inset-right);
+    }
+
+    header {
+        padding: 18px 16px;
+        padding-top: calc(18px + env(safe-area-inset-top));
+    }
+
+    header h1 {
+        font-size: 28px;
+    }
+
+    header p {
+        font-size: 16px;
+        margin: 6px 0 0;
+    }
+
+    /* Navigation becomes a grid of large, easy-to-tap buttons */
+    nav {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        padding: 10px;
+    }
+
+    nav a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+        margin: 0;
+        padding: 6px 8px;
+        border: 2px solid #444444;
+        border-radius: 8px;
+        font-size: 16px;
+        line-height: 1.2;
+    }
+
+    /* An odd link out at the end stretches across both columns */
+    nav a:last-child:nth-child(odd) {
+        grid-column: 1 / -1;
+    }
+
+    main {
+        margin: 12px auto;
+        padding: 0 12px;
+        padding-bottom: env(safe-area-inset-bottom);
+    }
+
+    .card,
+    .purple-accent,
+    .accessibility-panel {
+        padding: 18px;
+        margin-bottom: 14px;
+    }
+
+    h2 {
+        font-size: 23px;
+        margin-top: 0;
+    }
+
+    /* Full-width buttons with a comfortable touch target */
+    button {
+        display: block;
+        width: 100%;
+        min-height: 52px;
+        margin: 10px 0;
+        padding: 12px 16px;
+    }
+
+    input,
+    select,
+    textarea {
+        box-sizing: border-box;
+        width: 100%;
+        max-width: none;
+        /* 16px or larger stops iPhones from zooming in on every tap */
+        font-size: 17px;
+        min-height: 48px;
+    }
+
+    /* Wide content (like tables) scrolls sideways instead of breaking the page */
+    table {
+        display: block;
+        overflow-x: auto;
+        max-width: 100%;
+    }
+}

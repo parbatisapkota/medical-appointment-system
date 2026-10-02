@@ -968,3 +968,24 @@ document.addEventListener("DOMContentLoaded", function () {
     loadTodayAppointments();
 
 });
+
+
+/* =========================================
+   INSTALLABLE APP
+   Registers the service worker so phones
+   offer "Add to Home Screen" / "Install app".
+   See service-worker.js for what it does.
+========================================= */
+
+if ("serviceWorker" in navigator) {
+
+    window.addEventListener("load", function () {
+
+        navigator.serviceWorker
+            .register("/service-worker.js")
+            .catch(function (error) {
+
+                console.warn("Service worker registration failed:", error);
+            });
+    });
+}

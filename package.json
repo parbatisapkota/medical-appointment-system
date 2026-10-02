@@ -1,15 +1,16 @@
 {
   "name": "medical-appointment-system",
   "version": "1.0.0",
-  "description": "MedicalCare - a class project prototype for a patient appointment system, now backed by a real SQLite patient database.",
+  "description": "MedicalCare - a class project prototype for a patient appointment system, backed by a SQLite patient database (local file or hosted on Turso).",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
   "engines": {
-    "node": ">=22.5.0"
+    "node": ">=20"
   },
   "dependencies": {
+    "@libsql/client": "^0.18.0",
     "express": "^4.19.2"
   }
 }
