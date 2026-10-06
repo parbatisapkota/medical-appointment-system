@@ -988,4 +988,24 @@ if ("serviceWorker" in navigator) {
                 console.warn("Service worker registration failed:", error);
             });
     });
+
+
 }
+
+   /* =========================================
+   APPOINTMENT REMINDER FEATURE
+========================================= */
+function setAppointmentReminder() {
+    localStorage.setItem("appointmentReminder", "set");
+
+    alert("Your appointment reminder has been set successfully.");
+
+    const reminderButton = document.getElementById("reminderButton");
+
+    if (reminderButton) {
+        reminderButton.textContent = "✓ Reminder Set";
+        reminderButton.disabled = true;
+    }
+}
+
+
