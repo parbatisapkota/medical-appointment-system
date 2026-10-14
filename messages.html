@@ -59,12 +59,38 @@
                 in one simple and accessible place.
             </p>
 
-            <button
-                type="button"
-                onclick="readPage()"
-                aria-label="Listen to this page">
-                🔊 Listen to This Page
-            </button>
+            <!-- Module 3 Audio Controls -->
+            <div class="audio-controls">
+
+                <button
+                    type="button"
+                    onclick="readPage()"
+                    aria-label="Listen to this page">
+                    🔊 Listen to This Page
+                </button>
+
+                <button
+                    type="button"
+                    onclick="pauseSpeaking()"
+                    aria-label="Pause audio">
+                    ⏸ Pause Audio
+                </button>
+
+                <button
+                    type="button"
+                    onclick="resumeSpeaking()"
+                    aria-label="Resume audio">
+                    ▶️ Resume Audio
+                </button>
+
+                <button
+                    type="button"
+                    onclick="stopSpeaking()"
+                    aria-label="Stop audio">
+                    ⏹ Stop Audio
+                </button>
+
+            </div>
 
         </section>
 

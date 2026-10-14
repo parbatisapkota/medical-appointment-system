@@ -52,6 +52,38 @@ function stopSpeaking() {
 
 
 /* =========================================
+   PAUSE AUDIO
+   Module 3 Technology Component
+========================================= */
+
+function pauseSpeaking() {
+
+    if ("speechSynthesis" in window) {
+
+        if (window.speechSynthesis.speaking) {
+            window.speechSynthesis.pause();
+        }
+    }
+}
+
+
+/* =========================================
+   RESUME AUDIO
+   Module 3 Technology Component
+========================================= */
+
+function resumeSpeaking() {
+
+    if ("speechSynthesis" in window) {
+
+        if (window.speechSynthesis.paused) {
+            window.speechSynthesis.resume();
+        }
+    }
+}
+
+
+/* =========================================
    READ PAGE
 ========================================= */
 
