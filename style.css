@@ -1,37 +1,205 @@
 /* ===============================================================
+   BASE STYLES (all screen sizes)
+   =============================================================== */
+ 
+* {
+    box-sizing: border-box;
+}
+ 
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #1f2937;
+    background: #f3f4f6;
+}
+ 
+header {
+    background: #1e3a8a;
+    color: #ffffff;
+    padding: 24px 32px;
+}
+ 
+header h1 {
+    margin: 0;
+    font-size: 36px;
+}
+ 
+header p {
+    margin: 6px 0 0;
+}
+ 
+nav {
+    background: #ffffff;
+    padding: 12px 32px;
+    border-bottom: 3px solid #7c3aed;
+}
+ 
+nav a {
+    display: inline-block;
+    margin-right: 16px;
+    padding: 8px 12px;
+    color: #1e3a8a;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 6px;
+}
+ 
+nav a:hover,
+nav a:focus {
+    background: #ede9fe;
+    outline: 2px solid #7c3aed;
+}
+ 
+main {
+    max-width: 1000px;
+    margin: 24px auto;
+    padding: 0 20px;
+}
+ 
+.hero-section {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    padding: 40px;
+    margin-bottom: 20px;
+    background: #dbeafe;
+    border-radius: 12px;
+}
+ 
+.hero-content {
+    flex: 1;
+}
+ 
+.hero-label {
+    margin: 0 0 8px;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #6d28d9;
+}
+ 
+.hero-content h2 {
+    margin: 0 0 12px;
+    font-size: 40px;
+    color: #1e3a8a;
+}
+ 
+.hero-image {
+    flex: 1;
+}
+ 
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+}
+ 
+.card,
+.accessibility-panel,
+.purple-accent {
+    padding: 24px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    background: #ffffff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+ 
+.accessibility-panel {
+    border-left: 6px solid #1e3a8a;
+}
+ 
+.purple-accent {
+    background: #6d28d9;
+    color: #ffffff;
+}
+ 
+h2 {
+    margin-top: 0;
+    color: #1e3a8a;
+}
+ 
+.purple-accent h2 {
+    color: #ffffff;
+}
+ 
+button {
+    margin: 6px 8px 6px 0;
+    padding: 12px 20px;
+    font-size: 17px;
+    font-weight: bold;
+    color: #ffffff;
+    background: #1e3a8a;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+ 
+button:hover,
+button:focus {
+    background: #2563eb;
+    outline: 3px solid #fbbf24;
+}
+ 
+.purple-accent button {
+    background: #ffffff;
+    color: #6d28d9;
+}
+ 
+input {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    font-size: 17px;
+    border: 2px solid #9ca3af;
+    border-radius: 6px;
+}
+ 
+input:focus {
+    outline: 3px solid #7c3aed;
+    border-color: #7c3aed;
+}
+ 
+a {
+    color: #1d4ed8;
+}
+ 
+ 
+/* ===============================================================
    PHONES AND SMALL TABLETS
    Everything below applies on screens 700px wide or smaller.
    =============================================================== */
-
+ 
 @media (max-width: 700px) {
-
+ 
     body {
         font-size: 17px;
         padding-left: env(safe-area-inset-left);
         padding-right: env(safe-area-inset-right);
     }
-
+ 
     header {
         padding: 18px 16px;
         padding-top: calc(18px + env(safe-area-inset-top));
     }
-
+ 
     header h1 {
         font-size: 28px;
     }
-
+ 
     header p {
         font-size: 16px;
         margin: 6px 0 0;
     }
-
+ 
     nav {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 8px;
         padding: 10px;
     }
-
+ 
     nav a {
         display: flex;
         align-items: center;
@@ -44,51 +212,51 @@
         font-size: 16px;
         line-height: 1.2;
     }
-
+ 
     nav a:last-child:nth-child(odd) {
         grid-column: 1 / -1;
     }
-
+ 
     main {
         margin: 12px auto;
         padding: 0 12px;
         padding-bottom: env(safe-area-inset-bottom);
     }
-
+ 
     .card,
     .purple-accent,
     .accessibility-panel {
         padding: 18px;
         margin-bottom: 14px;
     }
-
+ 
     h2 {
         font-size: 23px;
         margin-top: 0;
     }
-
+ 
     .hero-section {
         flex-direction: column;
         padding: 30px;
         text-align: center;
     }
-
+ 
     .hero-content h2 {
         font-size: 34px;
     }
-
+ 
     .hero-content p {
         font-size: 18px;
     }
-
+ 
     .hero-image {
         width: 100%;
     }
-
+ 
     .hero-image img {
         max-width: 100%;
     }
-
+ 
     button {
         display: block;
         width: 100%;
@@ -96,7 +264,7 @@
         margin: 10px 0;
         padding: 12px 16px;
     }
-
+ 
     input,
     select,
     textarea {
@@ -106,10 +274,11 @@
         font-size: 17px;
         min-height: 48px;
     }
-
+ 
     table {
         display: block;
         overflow-x: auto;
         max-width: 100%;
     }
 }
+ 

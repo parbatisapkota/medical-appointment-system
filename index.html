@@ -1,24 +1,13 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>MedicalCare | Patient Management System</title>
 
     <link rel="stylesheet" href="style.css">
-
-    <!-- Installable app (Add to Home Screen) -->
-    <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#0066ff">
-    <link rel="icon" type="image/png" href="icons/favicon-32.png">
-    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="MedicalCare">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
 </head>
 
 <body>
@@ -29,22 +18,14 @@
         <p>Medical Appointment & Patient Management System</p>
     </header>
 
-
     <!-- Navigation -->
     <nav aria-label="Main navigation">
-
         <a href="index.html">Home</a>
-
         <a href="appointments.html">Appointments</a>
-
         <a href="patient-information.html">Patient Information</a>
-
         <a href="messages.html">Messages</a>
-
         <a href="login.html">Login</a>
-
     </nav>
-
 
     <main>
 
@@ -75,7 +56,6 @@
 
             </div>
 
-
             <div class="hero-image">
 
                 <img
@@ -85,7 +65,6 @@
             </div>
 
         </section>
-
 
         <!-- Accessibility Options -->
         <section class="accessibility-panel">
@@ -101,7 +80,7 @@
                 id="audioToggle"
                 type="button"
                 onclick="toggleAudio()"
-                data-audio-text="Audio assistance is currently on. Activate this button to turn audio assistance off.">
+                aria-label="Toggle audio assistance">
                 🔊 Audio Assistance: ON
             </button>
 
@@ -113,7 +92,6 @@
             </button>
 
         </section>
-
 
         <!-- Welcome Section -->
         <section class="card">
@@ -127,7 +105,6 @@
             </p>
 
         </section>
-
 
         <!-- Quick Actions -->
         <section class="card">
@@ -161,7 +138,6 @@
 
         </section>
 
-
         <!-- Purple Accent Section -->
         <section class="purple-accent">
 
@@ -180,7 +156,6 @@
             </button>
 
         </section>
-
 
         <!-- Patient Login -->
         <section class="card">
@@ -241,7 +216,6 @@
 
         </section>
 
-
         <!-- Why MedicalCare -->
         <section class="card">
 
@@ -267,7 +241,6 @@
 
         </section>
 
-
         <!-- Prototype Notice -->
         <section class="card">
 
@@ -284,10 +257,8 @@
 
     </main>
 
-
     <script src="script.js"></script>
 
 </body>
 
 </html>
-```
