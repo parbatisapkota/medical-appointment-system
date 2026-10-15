@@ -189,6 +189,22 @@ function requireLogin() {
     return patient;
 }
 
+/* Staff-only pages: redirect to login unless the signed-in
+   account has the staff role. */
+function requireStaff() {
+
+    const patient = getLoggedInPatient();
+
+    if (!patient || patient.role !== "staff") {
+
+        alert("Please log in with a staff account to view the staff dashboard.");
+        window.location.href = "staff-login.html";
+        return null;
+    }
+
+    return patient;
+}
+
 
 /* =========================================
    PATIENT LOGIN
@@ -232,18 +248,77 @@ async function loginUser() {
 
         setLoggedInPatient(data.patient);
 
+        var isStaff = data.patient.role === "staff";
+        var destination = isStaff ? "staff-dashboard.html" : "patient-dashboard.html";
+
         speak(
-            "Welcome, " + data.patient.fullName + ". You are being taken to your patient dashboard."
+            "Welcome, " + data.patient.fullName + ". You are being taken to your "
+            + (isStaff ? "staff dashboard." : "patient dashboard.")
         );
 
         setTimeout(function () {
 
-            window.location.href = "patient-dashboard.html";
+            window.location.href = destination;
 
         }, 1200);
 
     } catch (error) {
 
+        alert("Could not reach the MedicalCare server. Please make sure it is running.");
+        speak("Could not reach the MedicalCare server.");
+    }
+}
+
+
+/* =========================================
+   STAFF LOGIN (staff accounts only)
+========================================= */
+
+async function loginStaff() {
+
+    const usernameInput = document.getElementById("username");
+    const passwordInput = document.getElementById("password");
+
+    const username = usernameInput ? usernameInput.value.trim() : "";
+    const password = passwordInput ? passwordInput.value : "";
+
+    if (username === "" || password === "") {
+        alert("Please enter your staff username and password.");
+        speak("Please enter your staff username and password before logging in.");
+        return;
+    }
+
+    try {
+
+        const response = await fetch("/api/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ username, password }),
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            alert(data.error || "Invalid username or password.");
+            speak(data.error || "Invalid username or password.");
+            return;
+        }
+
+        if (data.patient.role !== "staff") {
+            alert("This is the staff login. Please use the patient login page instead.");
+            speak("This is the staff login. Please use the patient login page instead.");
+            return;
+        }
+
+        setLoggedInPatient(data.patient);
+
+        speak("Welcome, " + data.patient.fullName + ". You are being taken to the staff dashboard.");
+
+        setTimeout(function () {
+            window.location.href = "staff-dashboard.html";
+        }, 1200);
+
+    } catch (error) {
         alert("Could not reach the MedicalCare server. Please make sure it is running.");
         speak("Could not reach the MedicalCare server.");
     }
@@ -903,6 +978,83 @@ async function searchPatient() {
 
 
 /* =========================================
+   VIEW ALL PATIENTS (staff dashboard)
+========================================= */
+
+async function viewAllPatients(page) {
+
+    page = page || 1;
+
+    const results = document.getElementById("allPatientsResults");
+    const pager = document.getElementById("allPatientsPager");
+
+    if (!results) {
+        return;
+    }
+
+    results.innerHTML = "Loading patients...";
+    if (pager) {
+        pager.innerHTML = "";
+    }
+
+    try {
+
+        const response = await fetch(`/api/patients?all=1&page=${page}&pageSize=25`);
+        const data = await response.json();
+
+        if (!response.ok) {
+            results.textContent = "The patient list could not be loaded.";
+            return;
+        }
+
+        results.innerHTML = "";
+
+        const heading = document.createElement("p");
+        heading.innerHTML =
+            `<strong>${data.total} patients total</strong> &mdash; page ${data.page} of ${data.totalPages}`;
+        results.appendChild(heading);
+
+        data.patients.forEach(function (p, index) {
+
+            if (index > 0) {
+                results.appendChild(document.createElement("hr"));
+            }
+
+            const item = document.createElement("p");
+            item.innerHTML =
+                `<strong>${p.fullName}</strong> (${p.username}) &mdash; ` +
+                `DOB: ${p.dateOfBirth || "N/A"}, Phone: ${p.phone || "N/A"}, ` +
+                `Provider: ${p.primaryCareProvider || "N/A"}`;
+            results.appendChild(item);
+        });
+
+        if (pager) {
+
+            if (data.page > 1) {
+                const prev = document.createElement("button");
+                prev.type = "button";
+                prev.textContent = "\u2190 Previous";
+                prev.onclick = function () { viewAllPatients(data.page - 1); };
+                pager.appendChild(prev);
+            }
+
+            if (data.page < data.totalPages) {
+                const next = document.createElement("button");
+                next.type = "button";
+                next.textContent = "Next \u2192";
+                next.onclick = function () { viewAllPatients(data.page + 1); };
+                pager.appendChild(next);
+            }
+        }
+
+    } catch (error) {
+
+        results.textContent = "Could not reach the MedicalCare server. Please make sure it is running.";
+    }
+}
+
+
+/* =========================================
    STAFF: TODAY'S APPOINTMENTS
 ========================================= */
 
@@ -952,6 +1104,13 @@ async function loadTodayAppointments() {
 ========================================= */
 
 document.addEventListener("DOMContentLoaded", function () {
+
+    // Protect the staff dashboard: only staff accounts may view it.
+    if (document.getElementById("todayAppointments")) {
+        if (!requireStaff()) {
+            return;
+        }
+    }
 
     loadPatientName();
 

@@ -151,6 +151,7 @@ async function createTables() {
         primary_care_provider   TEXT,
         preferred_pharmacy      TEXT,
         insurance_provider      TEXT,
+        role                    TEXT NOT NULL DEFAULT 'patient',
         created_at              TEXT NOT NULL DEFAULT (datetime('now'))
     );
 
@@ -303,6 +304,7 @@ function publicPatient(row) {
         primaryCareProvider: row.primary_care_provider,
         preferredPharmacy: row.preferred_pharmacy,
         insuranceProvider: row.insurance_provider,
+        role: row.role || "patient",
     };
 }
 
@@ -406,6 +408,30 @@ api.post("/login", handle(async (req, res) => {
 // otherwise Express would try to treat "search" as an id.
 api.get("/patients", handle(async (req, res) => {
     const search = (req.query.search || "").toString().trim();
+    const wantAll = req.query.all === "1" || req.query.all === "true";
+
+    // "View All Patients": return the full list, 25 at a time, staff excluded.
+    if (wantAll) {
+        const page = Math.max(1, parseInt(req.query.page, 10) || 1);
+        const pageSize = Math.min(100, Math.max(1, parseInt(req.query.pageSize, 10) || 25));
+        const offset = (page - 1) * pageSize;
+
+        const totalRow = await get("SELECT COUNT(*) AS c FROM patients WHERE role != 'staff'");
+        const total = totalRow.c;
+
+        const rows = await all(
+            "SELECT * FROM patients WHERE role != 'staff' ORDER BY full_name LIMIT ? OFFSET ?",
+            pageSize, offset
+        );
+
+        return res.json({
+            patients: rows.map(publicPatient),
+            total,
+            page,
+            pageSize,
+            totalPages: Math.max(1, Math.ceil(total / pageSize)),
+        });
+    }
 
     if (!search) {
         return res.status(400).json({ error: "Provide a ?search= name to look up." });
@@ -611,6 +637,30 @@ app.use((err, req, res, next) => {
 // database is brand new, then start listening for requests.
 // ---------------------------------------------------------------
 
+// ---------------------------------------------------------------
+// Make sure older databases have the role column, and that a staff
+// login exists. Both run on every startup and are safe to repeat.
+// ---------------------------------------------------------------
+
+async function ensureRoleColumn() {
+    try {
+        await db.execute("ALTER TABLE patients ADD COLUMN role TEXT NOT NULL DEFAULT 'patient'");
+        console.log("Added 'role' column to patients.");
+    } catch (err) {
+        // Column already exists - that is fine.
+    }
+}
+
+async function ensureStaffAccount() {
+    const existing = await get("SELECT id FROM patients WHERE username = ?", "staff");
+    if (existing) return;
+    await run(`
+        INSERT INTO patients (username, password_hash, full_name, role)
+        VALUES (?, ?, ?, 'staff')
+    `, "staff", hashPassword("staffpass123"), "Medical Staff");
+    console.log("Created staff login (username: staff).");
+}
+
 async function start() {
     if (process.env.RENDER && !USING_TURSO) {
         console.warn(
@@ -622,7 +672,9 @@ async function start() {
     }
 
     await createTables();
+    await ensureRoleColumn();
     await seedIfEmpty();
+    await ensureStaffAccount();
 
     app.listen(PORT, () => {
         console.log(`MedicalCare server running at http://localhost:${PORT}`);

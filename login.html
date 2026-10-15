@@ -32,6 +32,7 @@
         <a href="appointments.html">Appointments</a>
         <a href="patient-information.html">Patient Information</a>
         <a href="messages.html">Messages</a>
+        <a href="staff-dashboard.html">Staff Dashboard</a>
         <a href="login.html">Login</a>
     </nav>
 
@@ -42,7 +43,7 @@
             <h2>Patient Login</h2>
 
             <p>
-                Enter your name or username to access your
+                Enter your username and password to access your
                 MedicalCare patient dashboard.
             </p>
 
@@ -77,7 +78,7 @@
             <button
                 type="button"
                 onclick="loginUser()"
-                data-audio-text="Log In. Select this button to access your patient dashboard.">
+                data-audio-text="Log In. Select this button to log in to MedicalCare.">
                 Log In
             </button>
 
@@ -93,6 +94,10 @@
                 </small>
             </p>
 
+            <p>
+                Staff member? <a href="staff-login.html">Go to the staff login</a>
+            </p>
+
         </section>
 
         <section class="purple-accent">
@@ -106,7 +111,7 @@
 
             <button
                 type="button"
-                onclick="speakText('Enter your username and select Log In to access your patient dashboard.')">
+                onclick="speakText('Enter your username and password, then select Log In to access MedicalCare.')">
                 🔊 Hear Login Instructions
             </button>
 
