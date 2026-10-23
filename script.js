@@ -996,16 +996,108 @@ if ("serviceWorker" in navigator) {
    APPOINTMENT REMINDER FEATURE
 ========================================= */
 function setAppointmentReminder() {
-    localStorage.setItem("appointmentReminder", "set");
-
-    alert("Your appointment reminder has been set successfully.");
-
+    // Get the appointment date and reminder preference
+    const appointmentInput = document.getElementById("appointmentDateTime");
+    const reminderSelect = document.getElementById("reminderTime");
     const reminderButton = document.getElementById("reminderButton");
 
+    if (!appointmentInput || !reminderSelect) {
+        alert("Appointment information is missing.");
+        return;
+    }
+
+    const appointmentDate = new Date(appointmentInput.value);
+    const hoursBefore = Number(reminderSelect.value);
+
+    // Calculate the reminder date and time
+    const reminderDate = new Date(
+        appointmentDate.getTime() - hoursBefore * 60 * 60 * 1000
+    );
+
+    // Make sure the appointment and reminder are in the future
+    if (
+        isNaN(appointmentDate.getTime()) ||
+        reminderDate <= new Date()
+    ) {
+        alert("Please choose a future appointment and reminder time.");
+        return;
+    }
+
+    // Save the reminder information in the browser
+    const reminderData = {
+        appointment: appointmentDate.toISOString(),
+        reminderTime: reminderDate.toISOString(),
+        hoursBefore: hoursBefore
+    };
+
+    localStorage.setItem(
+        "appointmentReminder",
+        JSON.stringify(reminderData)
+    );
+
+    // Show confirmation
+    alert(
+        "Reminder preference saved!\n" +
+        "Appointment: " + appointmentDate.toLocaleString() + "\n" +
+        "Reminder time: " + reminderDate.toLocaleString()
+    );
+
     if (reminderButton) {
-        reminderButton.textContent = "✓ Reminder Set";
-        reminderButton.disabled = true;
+        reminderButton.textContent = "✓ Reminder Preference Saved";
     }
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+    const reminderSelect = document.getElementById("reminderTime");
+    const savedReminder = localStorage.getItem("appointmentReminder");
 
+    if (reminderSelect && savedReminder) {
+        try {
+            const reminderData = JSON.parse(savedReminder);
+            reminderSelect.value = String(reminderData.hoursBefore);
+        } catch (error) {
+            console.error("Could not load saved reminder:", error);
+        }
+    }
+});
+
+/* APPOINTMENT COUNTDOWN FEATURE */
+
+function updateAppointmentCountdown() {
+    const appointmentInput = document.getElementById("appointmentDateTime");
+    const countdownDisplay = document.getElementById("countdownDisplay");
+
+    if (!appointmentInput || !countdownDisplay) {
+        return;
+    }
+
+    const appointmentDate = new Date(appointmentInput.value);
+    const now = new Date();
+    const timeRemaining = appointmentDate.getTime() - now.getTime();
+
+    if (isNaN(appointmentDate.getTime())) {
+        countdownDisplay.textContent = "Invalid appointment date.";
+        return;
+    }
+
+    if (timeRemaining <= 0) {
+        countdownDisplay.textContent = "This appointment has passed.";
+        return;
+    }
+
+    const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeRemaining / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((timeRemaining / (1000 * 60)) % 60);
+    const seconds = Math.floor((timeRemaining / 1000) % 60);
+
+    countdownDisplay.textContent =
+        days + " days, " +
+        hours + " hours, " +
+        minutes + " minutes, " +
+        seconds + " seconds remaining";
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    updateAppointmentCountdown();
+    setInterval(updateAppointmentCountdown, 1000);
+});

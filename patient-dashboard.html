@@ -111,16 +111,34 @@
 
     <p>
         🔔 Your appointment with Dr. Johnson is coming up
-        on September 28, 2026.
+        on November 5, 2026.
     </p>
 
     <p>
         🔔 Please arrive 15 minutes before your appointment.
     </p>
+    <p>Test Appointment: November 5, 2026 at 10:30 AM</p>
+<input type="hidden" id="appointmentDateTime" value="2026-11-05T10:30">
+
+<label for="reminderTime">When would you like to be reminded?</label>
+
+<select id="reminderTime">
+    <option value="24">24 hours before</option>
+    <option value="2">2 hours before</option>
+    <option value="1">1 hour before</option>
+</select>
 
     <button id="reminderButton" onclick="setAppointmentReminder()">
         Set Appointment Reminder
     </button>
+
+    <!-- Appointment Countdown Feature -->
+<div id="appointmentCountdown" style="margin-top: 25px;">
+    <h3>⏳ Countdown to Your Appointment</h3>
+    <p id="countdownDisplay" aria-live="off">
+        Calculating time remaining...
+    </p>
+</div>
 
 
         </section>
