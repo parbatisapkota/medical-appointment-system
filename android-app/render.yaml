@@ -1,0 +1,18 @@
+# Render "Blueprint" for MedicalCare (free plan).
+# Render reads this file when you create the service from this repo.
+# The two Turso values are secrets: Render asks you to paste them in
+# during setup, and they are never stored in this file or in git.
+services:
+  - type: web
+    name: medicalcare
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: TURSO_DATABASE_URL
+        sync: false
+      - key: TURSO_AUTH_TOKEN
+        sync: false
